@@ -9,6 +9,7 @@ import Projects from "../components/Projects"
 import Skills from "../components/Skills"
 import Contact from "../components/Contact"
 import { graphql } from "gatsby"
+import "../assets/styles/overrides.css"
 
 const S1 = styled.section`
   background: url(${props => props.background});
@@ -35,9 +36,11 @@ const IndexPage = ({ data }) => (
     <Header />
     <ReactFullpage
       licenseKey={"KEY"}
-      scrollingSpeed={1000}
+      scrollingSpeed={700}
       navigation={true}
-      navigationPosition=""
+      navigationPosition="left"
+      anchors={["home", "projects", "skills", "contact"]}
+      loopBottom={true}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
