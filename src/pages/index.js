@@ -8,6 +8,7 @@ import Home from "../components/Home"
 import Projects from "../components/Projects"
 import Skills from "../components/Skills"
 import Contact from "../components/Contact"
+import Menu from "../components/Menu"
 import { graphql } from "gatsby"
 import "../assets/styles/overrides.css"
 
@@ -30,16 +31,17 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data, location }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <Header />
+    <Header location={location} />
     <ReactFullpage
       licenseKey={"KEY"}
       scrollingSpeed={700}
       navigation={true}
       navigationPosition="left"
       anchors={["home", "projects", "skills", "contact"]}
+      menu={"#myMenu"}
       loopBottom={true}
       render={({ state, fullpageApi }) => {
         return (

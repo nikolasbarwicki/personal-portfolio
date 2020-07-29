@@ -7,6 +7,7 @@ const ToggleWrapper = styled.span`
   height: 3rem;
   position: relative;
   width: 3rem;
+  z-index: 9999;
 
   /* svg animations */
 
@@ -64,27 +65,24 @@ const ToggleWrapper = styled.span`
   }
 
   .svg-1 {
-    animation: ${props =>
-        props.status === "open" ? `rotate_in_cw` : `rotate_out_cw`}
-      0.8s;
+    animation: ${props => (props.menuOpened ? `rotate_in_cw` : `rotate_out_cw`)}
+      0.5s;
     animation-fill-mode: forwards;
 
     .line-1 {
-      animation: ${props => (props.status === "open" ? `draw_out` : `draw_in`)}
-        0.8s;
+      animation: ${props => (props.menuOpened ? `draw_out` : `draw_in`)} 0.5s;
       animation-fill-mode: forwards;
     }
     .line-3 {
-      animation: ${props => (props.status === "open" ? `draw_out` : `draw_in`)}
-        0.8s;
+      animation: ${props => (props.menuOpened ? `draw_out` : `draw_in`)} 0.5s;
       animation-fill-mode: forwards;
     }
   }
 
   .svg-2 {
     animation: ${props =>
-        props.status === "open" ? `rotate_in_ccw` : `rotate_out_ccw`}
-      0.8s;
+        props.menuOpened ? `rotate_in_ccw` : `rotate_out_ccw`}
+      0.5s;
     animation-fill-mode: forwards;
   }
 
@@ -93,7 +91,7 @@ const ToggleWrapper = styled.span`
   .svg-1 {
     .line-1,
     .line-3 {
-      stroke-dashoffset: ${props => (props.status === "open" ? `0%` : `100%`)};
+      stroke-dashoffset: ${props => (props.menuOpened ? `0%` : `100%`)};
     }
   }
 
@@ -115,20 +113,9 @@ const ToggleWrapper = styled.span`
   }
 `
 
-const MenuToggle = () => {
-  const [iconStatus, setIconStatus] = useState("default")
-
-  const toggle = () => {
-    iconStatus === "default" ? setIconStatus("open") : setIconStatus("default")
-  }
-
+const MenuToggle = ({ onClick, menuOpened }) => {
   return (
-    <ToggleWrapper
-      onClick={() => {
-        toggle()
-      }}
-      status={iconStatus}
-    >
+    <ToggleWrapper onClick={onClick} menuOpened={menuOpened}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 256 256"

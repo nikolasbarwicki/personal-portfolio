@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { FiGithub, FiLinkedin } from "react-icons/fi"
 import { IconContext } from "react-icons"
 import MenuToggle from "./MenuToggle"
+import Menu from "./Menu"
 
 const Logo = styled(Img)`
   height: 5rem;
@@ -35,7 +36,7 @@ const Wrapper = styled.header`
   z-index: 9999;
 `
 
-const Header = () => {
+const Header = ({ location }) => {
   const logo = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "logo.png" }) {
@@ -68,7 +69,7 @@ const Header = () => {
               </A>
             </li>
 
-            <MenuToggle />
+            <Menu location={location} />
           </IconContext.Provider>
         </Ul>
       </Nav>
