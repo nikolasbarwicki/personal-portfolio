@@ -10,6 +10,7 @@ import { IconContext } from "react-icons"
 const Content = styled.div`
   grid-column: 1 / span 6;
   text-align: left;
+  color: ${props => props.theme.colors.darkBlue};
 `
 const Heading = styled.h2`
   span {
@@ -83,6 +84,11 @@ const SubmitButton = styled.input`
   border-bottom: 2px solid ${props => props.theme.colors.yellow};
   margin: 2rem 0;
   cursor: pointer;
+  transition: color 0.3s ease;
+
+  :hover {
+    color: ${props => props.theme.colors.red};
+  }
 `
 
 const IconsWrapper = styled.ul`
@@ -92,6 +98,15 @@ const IconsWrapper = styled.ul`
   li {
     margin-right: 6rem;
     cursor: pointer;
+  }
+`
+
+const Icon = styled.a`
+  color: #07335d;
+  transition: color 0.3s ease;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.red};
   }
 `
 
@@ -124,7 +139,7 @@ const Contact = () => {
   `)
 
   return (
-    <Layout pageNumber="01">
+    <Layout pageNumber="04">
       <Content>
         <Heading>Get in touch</Heading>
         <Paragraph regular>
@@ -168,18 +183,29 @@ const Contact = () => {
         </Form>
         <p>You can find me online in many places...</p>
         <IconsWrapper>
-          <IconContext.Provider value={{ color: "#07335D", size: "30px" }}>
+          <IconContext.Provider value={{ size: "30px" }}>
             <li>
-              <FiMail />
+              <Icon href="mailto:nikolas.barwicki@gmail.com">
+                <FiMail />
+              </Icon>
             </li>
             <li>
-              <FaDribbble />
+              <Icon href="https://dribbble.com/barwicki" target="blank">
+                <FaDribbble />
+              </Icon>
             </li>
             <li>
-              <FiGithub />
+              <Icon href="https://github.com/nikolasbarwicki" target="blank">
+                <FiGithub />
+              </Icon>
             </li>
             <li>
-              <FiLinkedin />
+              <Icon
+                href="https://linkedin.com/in/nikolas-barwicki"
+                target="blank"
+              >
+                <FiLinkedin />
+              </Icon>
             </li>
           </IconContext.Provider>
         </IconsWrapper>

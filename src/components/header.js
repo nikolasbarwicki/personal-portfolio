@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { FiGithub, FiLinkedin } from "react-icons/fi"
 import { IconContext } from "react-icons"
-import MenuToggle from "./MenuToggle"
 import Menu from "./Menu"
 
 const Logo = styled(Img)`
@@ -21,9 +20,16 @@ const Ul = styled.ul`
   width: 200px;
 `
 
-const A = styled.a`
+const Icon = styled.a`
   display: flex;
   align-items: center;
+  color: #07335d;
+
+  transition: color 0.3s ease;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.red};
+  }
 `
 
 const Wrapper = styled.header`
@@ -57,18 +63,20 @@ const Header = ({ location }) => {
 
       <Nav>
         <Ul>
-          <IconContext.Provider value={{ color: "#07335D", size: "30px" }}>
+          <IconContext.Provider value={{ size: "30px" }}>
             <li>
-              <A href="">
+              <Icon href="https://github.com/nikolasbarwicki" target="blank">
                 <FiGithub />
-              </A>
+              </Icon>
             </li>
             <li>
-              <A href="">
+              <Icon
+                href="https://linkedin.com/in/nikolas-barwicki"
+                target="blank"
+              >
                 <FiLinkedin />
-              </A>
+              </Icon>
             </li>
-
             <Menu location={location} />
           </IconContext.Provider>
         </Ul>

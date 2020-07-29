@@ -7,6 +7,7 @@ import Img from "gatsby-image"
 const Content = styled.div`
   grid-column: 1 / span 6;
   text-align: left;
+  color: ${props => props.theme.colors.darkBlue};
 `
 const Heading = styled.h2`
   span {

@@ -8,7 +8,6 @@ import Home from "../components/Home"
 import Projects from "../components/Projects"
 import Skills from "../components/Skills"
 import Contact from "../components/Contact"
-import Menu from "../components/Menu"
 import { graphql } from "gatsby"
 import "../assets/styles/overrides.css"
 

@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   grid-gap: 5rem;
   padding: 5rem 7rem;
   position: relative;
+  color: ${props => props.theme.colors.darkBlue};
 
   ::before {
     position: absolute;
@@ -32,6 +33,7 @@ const Content = styled.div`
   grid-column: 1 / span 12;
   text-align: center;
   position: relative;
+  color: ${props => props.theme.colors.darkBlue};
 
   ::before {
     position: absolute;

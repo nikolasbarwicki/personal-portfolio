@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 const MenuLink = styled.a`
   padding: 1rem;
   background-color: ${({ href, location, theme }) =>
-    href == location.hash ? theme.colors.yellow : null};
+    href === location.hash ? theme.colors.yellow : null};
 
   :hover {
     background-color: ${({ theme }) => theme.colors.yellow};
@@ -77,6 +77,15 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+`
+
+const Icon = styled.a`
+  color: #07335d;
+  transition: color 0.3s ease;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.red};
+  }
 `
 
 const InnerWrapper = styled.div``
@@ -137,16 +146,19 @@ const Menu = ({ location }) => {
             </li>
           </ul>
           <IconsWrapper>
-            <IconContext.Provider value={{ color: "#07335D", size: "30px" }}>
+            <IconContext.Provider value={{ size: "30px" }}>
               <li>
-                <a href="">
+                <Icon href="https://github.com/nikolasbarwicki" target="blank">
                   <FiGithub />
-                </a>
+                </Icon>
               </li>
               <li>
-                <a href="">
+                <Icon
+                  href="https://linkedin.com/in/nikolas-barwicki"
+                  target="blank"
+                >
                   <FiLinkedin />
-                </a>
+                </Icon>
               </li>
             </IconContext.Provider>
           </IconsWrapper>
@@ -155,7 +167,9 @@ const Menu = ({ location }) => {
           <Image fixed={shape.file.childImageSharp.fixed} />
           <InnerWrapper>
             <p style={{ fontSize: "14px", fontWeight: "600" }}>
-              hello@nikolasbarwicki.com
+              <a href="mailto:nikolas.barwicki@gmail.com">
+                hello@nikolasbarwicki.com
+              </a>
             </p>
             <p style={{ fontSize: "12px", fontWeight: "400" }}>
               © Nikolas Barwicki 2020
