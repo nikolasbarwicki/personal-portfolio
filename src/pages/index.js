@@ -7,6 +7,7 @@ import Header from "../components/Header"
 import Home from "../components/Home"
 import Projects from "../components/Projects"
 import Skills from "../components/Skills"
+import Contact from "../components/Contact"
 import { graphql } from "gatsby"
 
 const S1 = styled.section`
@@ -49,6 +50,9 @@ const IndexPage = ({ data }) => (
             <S3 className="section">
               <Skills />
             </S3>
+            <section className="section">
+              <Contact />
+            </section>
           </ReactFullpage.Wrapper>
         )
       }}
