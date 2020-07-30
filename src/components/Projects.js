@@ -1,27 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "./Layout"
 import styled from "styled-components"
-import { FiArrowRight } from "react-icons/fi"
-import { IconContext } from "react-icons"
+import ProjectDescription from "./ProjectDescription"
 
 const Content = styled.div`
   grid-column: 1 / span 5;
   text-align: left;
   align-self: end;
   color: ${props => props.theme.colors.darkBlue};
-`
-const Heading = styled.h2`
-  span {
-    color: ${props => props.theme.colors.yellow};
-    font-size: inherit;
-  }
-`
-
-const Paragraph = styled.p`
-  padding: ${props => props.padding}rem 0;
-  font-weight: ${props => props.regular && "400"};
 `
 
 const ProjectsWrapper = styled.div`
@@ -34,6 +22,12 @@ const ProjectHeading = styled.span`
   font-size: 2.2rem;
   font-weight: ${props => props.bold && "700"};
   color: ${props => props.theme.colors.darkBlue};
+  transition: font-weight 0.3s ease;
+  cursor: pointer;
+
+  :hover {
+    font-weight: 700;
+  }
 `
 
 const ImageWrapper = styled.div`
@@ -59,28 +53,36 @@ const Image = styled(Img)`
   max-width: 100%;
 `
 
-const Details = styled.p`
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
-  cursor: pointer;
-
-  :hover {
-    color: ${({ theme }) => theme.colors.red};
-  }
-
-  svg {
-    margin-left: 1.5rem;
-  }
-`
-
 const Projects = () => {
+  const [activeProject, setActiveProject] = useState(1)
+
   const data = useStaticQuery(graphql`
     {
-      image: file(relativePath: { eq: "projects-2.png" }) {
+      project1: file(relativePath: { eq: "project1.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+      project2: file(relativePath: { eq: "project2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+      project3: file(relativePath: { eq: "project3.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+      project4: file(relativePath: { eq: "project4.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -90,55 +92,107 @@ const Projects = () => {
     }
   `)
 
-  console.log(data)
-
   return (
     <Layout pageNumber="02" doubleRow="60% 40%">
       <Content>
-        <h3>Web Design & Development</h3>
-        <Heading>Skin Balance</Heading>
-        <Paragraph regular padding={2}>
-          I've always been drawn to the overlap between design and development.
-          Enjoy each aspect, and love building sites & mobile apps from start to
-          finish, for clients come from all over the world.
-        </Paragraph>
-        <Details>
-          PROJECT DETAILS
-          <IconContext.Provider value={{ size: "30px", color: "#FFDB66" }}>
-            <FiArrowRight />
-          </IconContext.Provider>
-        </Details>
+        {activeProject === 1 && (
+          <ProjectDescription
+            secondary="Freelance Development & Web Design"
+            primary="Skin Balance"
+            desc="I've always been drawn to the overlap between design and
+        development. Enjoy each aspect, and love building sites & mobile
+        apps from start to finish, for clients come from all over the
+        world."
+            link="https://github.com/nikolasbarwicki/skin-balance"
+          />
+        )}
+        {activeProject === 2 && (
+          <ProjectDescription
+            secondary="Frontend Development & Web Design"
+            primary="Budgety App"
+            desc="I've always been drawn to the overlap between design and
+        development. Enjoy each aspect, and love building sites & mobile
+        apps from start to finish, for clients come from all over the
+        world."
+            link="https://github.com/nikolasbarwicki/budget-app"
+          />
+        )}
+        {activeProject === 3 && (
+          <ProjectDescription
+            secondary="Fullstack Development"
+            primary="BeerNote"
+            desc="I've always been drawn to the overlap between design and
+          development. Enjoy each aspect, and love building sites & mobile
+          apps from start to finish, for clients come from all over the
+          world."
+            link="https://github.com/nikolasbarwicki/beernote"
+          />
+        )}
+        {activeProject === 4 && (
+          <ProjectDescription
+            secondary="Frontend Development & Web Design"
+            primary="Pantry App"
+            desc="I've always been drawn to the overlap between design and
+        development. Enjoy each aspect, and love building sites & mobile
+        apps from start to finish, for clients come from all over the
+        world."
+            link="https://github.com/nikolasbarwicki/pantry-app"
+          />
+        )}
       </Content>
       <ImageWrapper background={data.background.publicURL}>
-        <Image fluid={data.image.childImageSharp.fluid} />
+        {activeProject === 1 && (
+          <Image fluid={data.project1.childImageSharp.fluid} />
+        )}
+        {activeProject === 2 && (
+          <Image fluid={data.project2.childImageSharp.fluid} />
+        )}
+        {activeProject === 3 && (
+          <Image fluid={data.project3.childImageSharp.fluid} />
+        )}
+        {activeProject === 4 && (
+          <Image fluid={data.project4.childImageSharp.fluid} />
+        )}
       </ImageWrapper>
       <ProjectsWrapper>
         <div>
-          <ProjectHeading>
+          <ProjectHeading
+            onClick={() => setActiveProject(1)}
+            bold={activeProject === 1}
+          >
             01.
-            <br />
-            Beer Note
-          </ProjectHeading>
-        </div>
-        <div>
-          <ProjectHeading bold>
-            02.
             <br />
             Skin Balance
           </ProjectHeading>
         </div>
         <div>
-          <ProjectHeading>
-            03.
+          <ProjectHeading
+            onClick={() => setActiveProject(2)}
+            bold={activeProject === 2}
+          >
+            02.
             <br />
             Budgety App
           </ProjectHeading>
         </div>
         <div>
-          <ProjectHeading>
+          <ProjectHeading
+            onClick={() => setActiveProject(3)}
+            bold={activeProject === 3}
+          >
+            03.
+            <br />
+            BeerNote
+          </ProjectHeading>
+        </div>
+        <div>
+          <ProjectHeading
+            onClick={() => setActiveProject(4)}
+            bold={activeProject === 4}
+          >
             04.
             <br />
-            Awesome App
+            Pantry App
           </ProjectHeading>
         </div>
       </ProjectsWrapper>
