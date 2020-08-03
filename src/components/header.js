@@ -17,7 +17,11 @@ const Ul = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
+  min-width: 200px;
+
+  @media only screen and (max-width: 37.5rem) {
+    min-width: 0;
+  }
 `
 
 const Icon = styled.a`
@@ -30,6 +34,10 @@ const Icon = styled.a`
   :hover {
     color: ${({ theme }) => theme.colors.red};
   }
+
+  @media only screen and (max-width: 37.5rem) {
+    display: none;
+  }
 `
 
 const Wrapper = styled.header`
@@ -40,6 +48,14 @@ const Wrapper = styled.header`
   padding: 4rem 7rem 0 7rem;
   position: fixed;
   z-index: 9999;
+
+  @media only screen and (max-width: 56.25rem) {
+    padding: 4rem 6rem;
+    background-color: white;
+  }
+  @media only screen and (max-width: 37.5rem) {
+    padding: 2rem 3rem;
+  }
 `
 
 const Header = ({ location }) => {
@@ -63,7 +79,7 @@ const Header = ({ location }) => {
 
       <Nav>
         <Ul>
-          <IconContext.Provider value={{ size: "30px" }}>
+          <IconContext.Provider value={{ size: "3rem" }}>
             <li>
               <Icon href="https://github.com/nikolasbarwicki" target="blank">
                 <FiGithub />

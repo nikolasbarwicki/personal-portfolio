@@ -121,9 +121,9 @@ const MenuToggle = ({ onClick, menuOpened }) => {
         viewBox="0 0 256 256"
         className="svg-1"
       >
-        <path class="line-1" d="M9 53.8h237.66" />
-        <path class="line-2" d="M9 129.25h237.66" />
-        <path class="line-3" d="M9 204.7h237.66" />
+        <path className="line-1" d="M9 53.8h237.66" />
+        <path className="line-2" d="M9 129.25h237.66" />
+        <path className="line-3" d="M9 204.7h237.66" />
       </svg>
 
       <svg
@@ -131,7 +131,7 @@ const MenuToggle = ({ onClick, menuOpened }) => {
         viewBox="0 0 256 256"
         className="svg-2"
       >
-        <path class="cls-1" d="M9 129.25h237.66" />
+        <path className="cls-1" d="M9 129.25h237.66" />
       </svg>
     </ToggleWrapper>
   )

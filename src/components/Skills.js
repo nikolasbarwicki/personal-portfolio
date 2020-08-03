@@ -15,17 +15,18 @@ const Wrapper = styled.div`
   position: relative;
   color: ${props => props.theme.colors.darkBlue};
 
-  ::before {
-    position: absolute;
-    content: "";
-    left: -80px;
-    bottom: -50px;
-    width: 190px;
-    height: 190px;
-    background: url(${props => props.background});
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
+  @media only screen and (max-width: 75rem) {
+    grid-gap: 2.5rem;
+  }
+  @media only screen and (max-width: 56.25rem) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column: 2 / span 10;
+  }
+  @media only screen and (max-width: 37.5rem) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    grid-column: 1 / span 12;
   }
 `
 
@@ -46,6 +47,14 @@ const Content = styled.div`
     background: url(${props => props.background});
     background-position: center;
     background-size: cover;
+    z-index: -5;
+  }
+
+  @media only screen and (min-width: 112.5rem) {
+    ::before {
+      right: -150px;
+      width: 250px;
+    }
   }
 `
 
@@ -79,6 +88,11 @@ const Item = styled.div`
   height: 220px;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 37.5rem) {
+    align-items: center;
+    text-align: center;
+  }
 `
 
 const Image = styled(Img)``

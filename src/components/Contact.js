@@ -11,6 +11,10 @@ const Content = styled.div`
   grid-column: 1 / span 6;
   text-align: left;
   color: ${props => props.theme.colors.darkBlue};
+
+  @media only screen and (max-width: 37.5rem) {
+    grid-column: 1 / span 12;
+  }
 `
 const Heading = styled.h2`
   span {
@@ -25,8 +29,15 @@ const Paragraph = styled.p`
 `
 
 const Image = styled(Img)`
-  grid-column: 8 / span 5;
-  width: 30vw;
+  grid-column: 7 / span 6;
+  margin-left: 5rem;
+  width: calc(100% - 5rem);
+
+  @media only screen and (max-width: 37.5rem) {
+    grid-column: 1 / span 12;
+    width: 100%;
+    margin-left: 0;
+  }
 `
 
 const Form = styled.form`
@@ -88,6 +99,10 @@ const SubmitButton = styled.input`
 
   :hover {
     color: ${props => props.theme.colors.red};
+  }
+
+  @media only screen and (max-width: 37.5rem) {
+    grid-column: 1 / span 3;
   }
 `
 

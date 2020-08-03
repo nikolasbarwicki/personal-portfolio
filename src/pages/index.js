@@ -35,13 +35,14 @@ const IndexPage = ({ data, location }) => (
     <GlobalStyles />
     <Header location={location} />
     <ReactFullpage
-      licenseKey={"KEY"}
+      licenseKey={"5147266D-76274BA9-91276EF6-487CD09B"}
       scrollingSpeed={700}
       navigation={true}
       navigationPosition="left"
       anchors={["home", "projects", "skills", "contact"]}
       menu={"#myMenu"}
       loopBottom={true}
+      scrollOverflow={true}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>

@@ -17,14 +17,25 @@ const Page = styled.aside`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 81px);
+  grid-template-columns: repeat(12, minmax(20px, 81px));
   grid-template-rows: ${props => (props.doubleRow ? props.doubleRow : "auto")};
-  width: 100vw;
+  max-width: 1170px;
   grid-gap: 18px;
   justify-content: center;
   align-items: center;
   height: 100%;
   padding: 14rem 0 10rem;
+
+  @media only screen and (max-width: 75rem) {
+    padding: 14rem 6rem 8rem 6rem;
+    grid-template-rows: auto;
+  }
+  @media only screen and (max-width: 56.25rem) {
+    grid-gap: 9px;
+  }
+  @media only screen and (max-width: 37.5rem) {
+    padding: 10rem 3rem 8rem 3rem;
+  }
 `
 
 const Span = styled.span`
@@ -36,6 +47,10 @@ const Span = styled.span`
   font-size: 5rem;
   font-weight: 700;
   text-align: center;
+
+  @media only screen and (max-width: 37.5rem) {
+    display: none;
+  }
 `
 
 const Layout = ({ children, pageNumber, doubleRow }) => {

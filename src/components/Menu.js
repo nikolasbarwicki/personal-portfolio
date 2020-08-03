@@ -30,12 +30,20 @@ const Wrapper = styled.div`
     padding: 0.7rem;
     color: ${props => props.theme.colors.darkBlue};
   }
+
+  @media only screen and (max-width: 37.5rem) {
+    width: 100vw;
+  }
 `
 
 const MenuLink = styled.a`
   padding: 1rem;
-  background-color: ${({ href, location, theme }) =>
-    href === location.hash ? theme.colors.yellow : null};
+  background-color: ${({ href, location, theme, defaultYellow }) =>
+    defaultYellow && location.hash === ""
+      ? theme.colors.yellow
+      : href === location.hash
+      ? theme.colors.yellow
+      : null};
 
   :hover {
     background-color: ${({ theme }) => theme.colors.yellow};
@@ -77,6 +85,10 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+
+  @media only screen and (max-width: 37.5rem) {
+    display: none;
+  }
 `
 
 const Icon = styled.a`
@@ -114,7 +126,6 @@ const Menu = ({ location }) => {
       <MenuToggle
         onClick={() => {
           toggle()
-          console.log(menuOpened)
         }}
         menuOpened={menuOpened}
       />
@@ -125,22 +136,47 @@ const Menu = ({ location }) => {
         <Nav>
           <ul id="myMenu">
             <li data-menuanchor="home">
-              <MenuLink href="#home" location={location}>
+              <MenuLink
+                href="#home"
+                location={location}
+                onClick={() => {
+                  toggle()
+                }}
+                defaultYellow
+              >
                 home
               </MenuLink>
             </li>
             <li data-menuanchor="projects">
-              <MenuLink href="#projects" location={location}>
+              <MenuLink
+                href="#projects"
+                location={location}
+                onClick={() => {
+                  toggle()
+                }}
+              >
                 projects
               </MenuLink>
             </li>
             <li data-menuanchor="skills">
-              <MenuLink href="#skills" location={location}>
+              <MenuLink
+                href="#skills"
+                location={location}
+                onClick={() => {
+                  toggle()
+                }}
+              >
                 skills
               </MenuLink>
             </li>
             <li data-menuanchor="contact">
-              <MenuLink href="#contact" location={location}>
+              <MenuLink
+                href="#contact"
+                location={location}
+                onClick={() => {
+                  toggle()
+                }}
+              >
                 contact
               </MenuLink>
             </li>

@@ -8,14 +8,35 @@ import ProjectDescription from "./ProjectDescription"
 const Content = styled.div`
   grid-column: 1 / span 5;
   text-align: left;
-  align-self: end;
+  align-self: center;
   color: ${props => props.theme.colors.darkBlue};
+
+  @media only screen and (min-width: 112.5rem) {
+  }
+  @media only screen and (max-width: 75rem) {
+    align-self: center;
+  }
+  @media only screen and (max-width: 56.25rem) {
+  }
+  @media only screen and (max-width: 37.5rem) {
+    grid-column: 1 / span 12;
+    align-self: start;
+  }
 `
 
 const ProjectsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column: 1 / span 12;
+
+  @media only screen and (max-width: 37.5rem) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+`
+
+const ProjectItem = styled.div`
+  padding: 4rem 2rem;
 `
 
 const ProjectHeading = styled.span`
@@ -33,8 +54,7 @@ const ProjectHeading = styled.span`
 const ImageWrapper = styled.div`
   grid-column: 6 / span 7;
   position: relative;
-  align-self: end;
-  top: 80px;
+  align-self: center;
 
   ::before {
     position: absolute;
@@ -46,6 +66,37 @@ const ImageWrapper = styled.div`
     background: url(${props => props.background});
     background-position: center;
     background-size: cover;
+  }
+
+  @media only screen and (max-width: 75rem) {
+    margin-top: 6rem;
+
+    ::before {
+      right: -50px;
+      top: -50px;
+      width: 350px;
+      height: 350px;
+    }
+  }
+  @media only screen and (max-width: 56.25rem) {
+    grid-column: 6 / span 7;
+    align-self: end;
+
+    ::before {
+      width: 240px;
+      height: 240px;
+    }
+  }
+  @media only screen and (max-width: 37.5rem) {
+    grid-column: 1 / span 12;
+    align-self: end;
+
+    ::before {
+      right: -20px;
+      top: -20px;
+      width: 150px;
+      height: 150px;
+    }
   }
 `
 
@@ -93,7 +144,7 @@ const Projects = () => {
   `)
 
   return (
-    <Layout pageNumber="02" doubleRow="60% 40%">
+    <Layout pageNumber="02" doubleRow="65% 35%">
       <Content>
         {activeProject === 1 && (
           <ProjectDescription
@@ -155,7 +206,7 @@ const Projects = () => {
         )}
       </ImageWrapper>
       <ProjectsWrapper>
-        <div>
+        <ProjectItem>
           <ProjectHeading
             onClick={() => setActiveProject(1)}
             bold={activeProject === 1}
@@ -164,8 +215,8 @@ const Projects = () => {
             <br />
             Skin Balance
           </ProjectHeading>
-        </div>
-        <div>
+        </ProjectItem>
+        <ProjectItem>
           <ProjectHeading
             onClick={() => setActiveProject(2)}
             bold={activeProject === 2}
@@ -174,8 +225,8 @@ const Projects = () => {
             <br />
             Budgety App
           </ProjectHeading>
-        </div>
-        <div>
+        </ProjectItem>
+        <ProjectItem>
           <ProjectHeading
             onClick={() => setActiveProject(3)}
             bold={activeProject === 3}
@@ -184,8 +235,8 @@ const Projects = () => {
             <br />
             BeerNote
           </ProjectHeading>
-        </div>
-        <div>
+        </ProjectItem>
+        <ProjectItem>
           <ProjectHeading
             onClick={() => setActiveProject(4)}
             bold={activeProject === 4}
@@ -194,7 +245,7 @@ const Projects = () => {
             <br />
             Pantry App
           </ProjectHeading>
-        </div>
+        </ProjectItem>
       </ProjectsWrapper>
     </Layout>
   )
