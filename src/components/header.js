@@ -64,7 +64,7 @@ const Header = ({ location }) => {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -82,7 +82,7 @@ const Header = ({ location }) => {
           <IconContext.Provider value={{ size: "3rem" }}>
             <li>
               <Icon href="https://github.com/nikolasbarwicki" target="blank">
-                <FiGithub alt="Nikolas Barwicki github account"/>
+                <FiGithub alt="Nikolas Barwicki github account" />
               </Icon>
             </li>
             <li>
@@ -90,7 +90,7 @@ const Header = ({ location }) => {
                 href="https://linkedin.com/in/nikolas-barwicki"
                 target="blank"
               >
-                <FiLinkedin alt="Nikolas Barwicki linkedin account"/>
+                <FiLinkedin alt="Nikolas Barwicki linkedin account" />
               </Icon>
             </li>
             <Menu location={location} />

@@ -9,7 +9,8 @@ import Projects from "../components/Projects"
 import Skills from "../components/Skills"
 import Contact from "../components/Contact"
 import { graphql } from "gatsby"
-import "../assets/styles/overrides.css"
+import "../styles/global.css"
+import SEO from "../components/seo"
 
 const S1 = styled.section`
   background: url(${props => props.background});
@@ -33,6 +34,7 @@ export const query = graphql`
 const IndexPage = ({ data, location }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
+    <SEO lang="en" />
     <Header location={location} />
     <ReactFullpage
       licenseKey={"5147266D-76274BA9-91276EF6-487CD09B"}

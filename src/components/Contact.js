@@ -82,7 +82,7 @@ const Textarea = styled.textarea`
   }
 `
 
-const SubmitButton = styled.input`
+const SubmitButton = styled.button`
   grid-column: 1 / span 2;
   font-family: inherit;
   color: #07335d;
@@ -182,6 +182,7 @@ const Contact = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="form-name" value="contact" />
           <Input
             grid={"1 / span 3"}
             type="name"
@@ -210,11 +211,7 @@ const Contact = () => {
             rows="3"
           />
 
-          <SubmitButton
-            type="submit"
-            className="btn btn-primary"
-            value="SEND A MESSAGE"
-          />
+          <SubmitButton type="submit">SEND A MESSAGE</SubmitButton>
         </Form>
         <p>You can find me online in many places...</p>
         <IconsWrapper>
