@@ -137,7 +137,21 @@ const Contact = () => {
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value })
 
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   const onSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formData }),
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error))
+
     e.preventDefault()
   }
 
@@ -161,7 +175,13 @@ const Contact = () => {
           If you would like to work together or find out more about how I could
           help you please fill in the form below.
         </Paragraph>
-        <Form className="form" onSubmit={e => onSubmit(e)}>
+        <Form
+          onSubmit={e => onSubmit(e)}
+          name="contact"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <Input
             grid={"1 / span 3"}
             type="name"
