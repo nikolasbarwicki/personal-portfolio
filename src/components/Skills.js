@@ -171,14 +171,12 @@ const Skills = () => {
     <Layout pageNumber="03" doubleRow="20% 80%">
       <Content background={icons.backgroundBlue.publicURL}>
         <h2>My featured skills</h2>
-        <Paragraph
-          regular
-          padding={2}
+        <p
+          style={{ padding: "2rem 0", fontWeight: 400 }}
           background={icons.backgroundYellow.publicURL}
         >
-          I specialize in helping early stage startups validate their riskiest
-          assumptions.
-        </Paragraph>
+          Here are some of the tools that I use to build my applications
+        </p>
       </Content>
 
       <Wrapper>
@@ -186,56 +184,52 @@ const Skills = () => {
           <Image fixed={icons.reactIcon.childImageSharp.fixed} />
           <ItemHeading>React JS</ItemHeading>
           <Paragraph regular>
-            I specialize in helping early stage startups validate
+            Building reactive apps using ES6 JavaScript
           </Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.reduxIcon.childImageSharp.fixed} />
           <ItemHeading>Redux</ItemHeading>
           <Paragraph regular>
-            I specialize in helping early stage startups validate
+            Centralizing application's state using Redux
           </Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.styledIcon.childImageSharp.fixed} />
           <ItemHeading>styledcomponents</ItemHeading>
           <Paragraph regular>
-            I specialize in helping early stage startups validate
+            Styling components using the power of CSS-in-JS
           </Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.adobeIcon.childImageSharp.fixed} />
           <ItemHeading>Adobe Suite</ItemHeading>
-          <Paragraph regular>
-            I specialize in helping early stage startups validate
-          </Paragraph>
+          <Paragraph regular>Creating and coding pixel perfect UIs</Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.gatsbyIcon.childImageSharp.fixed} />
           <ItemHeading>Gatsby JS</ItemHeading>
-          <Paragraph regular>
-            I specialize in helping early stage startups validate
-          </Paragraph>
+          <Paragraph regular>Building blazing fast static websites</Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.nodejsIcon.childImageSharp.fixed} />
           <ItemHeading>Node.js</ItemHeading>
           <Paragraph regular>
-            I specialize in helping early stage startups validate
+            Learning backend with Express.js and MongoDB
           </Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.htmlIcon.childImageSharp.fixed} />
           <ItemHeading>HTML & CSS</ItemHeading>
           <Paragraph regular>
-            I specialize in helping early stage startups validate
+            Writing semantic HTML with solid RWD knowledge
           </Paragraph>
         </Item>
         <Item>
           <Image fixed={icons.githubIcon.childImageSharp.fixed} />
           <ItemHeading>Git & Unix terminal</ItemHeading>
           <Paragraph regular>
-            I specialize in helping early stage startups validate
+            Tracking changes using GIT and Unix terminal
           </Paragraph>
         </Item>
       </Wrapper>

@@ -150,10 +150,7 @@ const Projects = () => {
           <ProjectDescription
             secondary="Freelance Development & Web Design"
             primary="Skin Balance"
-            desc="I've always been drawn to the overlap between design and
-        development. Enjoy each aspect, and love building sites & mobile
-        apps from start to finish, for clients come from all over the
-        world."
+            desc="Commercial freelance project for beauty studio located in Wrocław, Poland. Simple gatsby project done for training purposes. Wanted to understand how to work with GraphQL and opitmise images with gatsby-image."
             link="https://github.com/nikolasbarwicki/skin-balance"
           />
         )}
@@ -161,10 +158,9 @@ const Projects = () => {
           <ProjectDescription
             secondary="Frontend Development & Web Design"
             primary="Budgety App"
-            desc="I've always been drawn to the overlap between design and
-        development. Enjoy each aspect, and love building sites & mobile
-        apps from start to finish, for clients come from all over the
-        world."
+            desc="React app to create and manage your household budget. User friendly finance tracker with many charts and filterable transactions list. React project done for training purposes. Wanted to fully understand state management with react hooks and context API.
+
+            "
             link="https://github.com/nikolasbarwicki/budget-app"
           />
         )}
@@ -172,10 +168,9 @@ const Projects = () => {
           <ProjectDescription
             secondary="Fullstack Development"
             primary="BeerNote"
-            desc="I've always been drawn to the overlap between design and
-          development. Enjoy each aspect, and love building sites & mobile
-          apps from start to finish, for clients come from all over the
-          world."
+            desc="Simple CRUD (create, read, update, delete) app to get data into and out of a database to log your favourite drinks. React project done for training purposes. The main focus of the project was to create external API and connect it to frontend via redux state management.
+
+            "
             link="https://github.com/nikolasbarwicki/beernote"
           />
         )}
@@ -183,10 +178,7 @@ const Projects = () => {
           <ProjectDescription
             secondary="Frontend Development & Web Design"
             primary="Pantry App"
-            desc="I've always been drawn to the overlap between design and
-        development. Enjoy each aspect, and love building sites & mobile
-        apps from start to finish, for clients come from all over the
-        world."
+            desc="React project done for training purposes. Wanted to create it to practise some basic React features, as well as, some more complex tools and dependecies."
             link="https://github.com/nikolasbarwicki/pantry-app"
           />
         )}

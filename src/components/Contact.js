@@ -158,8 +158,8 @@ const Contact = () => {
       <Content>
         <Heading>Get in touch</Heading>
         <Paragraph regular>
-          Let's build something together! If you have any other questions, you
-          can leave here.
+          If you would like to work together or find out more about how I could
+          help you please fill in the form below.
         </Paragraph>
         <Form className="form" onSubmit={e => onSubmit(e)}>
           <Input
@@ -201,17 +201,17 @@ const Contact = () => {
           <IconContext.Provider value={{ size: "30px" }}>
             <li>
               <Icon href="mailto:nikolas.barwicki@gmail.com">
-                <FiMail />
+                <FiMail alt="Nikolas Barwicki mail address" />
               </Icon>
             </li>
             <li>
               <Icon href="https://dribbble.com/barwicki" target="blank">
-                <FaDribbble />
+                <FaDribbble alt="Nikolas Barwicki dribble account" />
               </Icon>
             </li>
             <li>
               <Icon href="https://github.com/nikolasbarwicki" target="blank">
-                <FiGithub />
+                <FiGithub alt="Nikolas Barwicki github account" />
               </Icon>
             </li>
             <li>
@@ -219,7 +219,7 @@ const Contact = () => {
                 href="https://linkedin.com/in/nikolas-barwicki"
                 target="blank"
               >
-                <FiLinkedin />
+                <FiLinkedin alt="Nikolas Barwicki linkedin account" />
               </Icon>
             </li>
           </IconContext.Provider>

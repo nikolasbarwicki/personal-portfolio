@@ -202,14 +202,18 @@ const Menu = ({ location }) => {
         <BottomWrapper>
           <Image fixed={shape.file.childImageSharp.fixed} />
           <InnerWrapper>
-            <p style={{ fontSize: "14px", fontWeight: "600" }}>
-              <a href="mailto:nikolas.barwicki@gmail.com">
-                hello@nikolasbarwicki.com
-              </a>
-            </p>
-            <p style={{ fontSize: "12px", fontWeight: "400" }}>
-              © Nikolas Barwicki 2020
-            </p>
+            <li>
+              <p style={{ fontSize: "14px", fontWeight: "600" }}>
+                <a href="mailto:nikolas.barwicki@gmail.com">
+                  hello@nikolasbarwicki.com
+                </a>
+              </p>
+            </li>
+            <li>
+              <p style={{ fontSize: "12px", fontWeight: "400" }}>
+                © Nikolas Barwicki 2020
+              </p>
+            </li>
           </InnerWrapper>
         </BottomWrapper>
       </Wrapper>

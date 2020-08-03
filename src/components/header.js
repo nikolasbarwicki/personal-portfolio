@@ -82,7 +82,7 @@ const Header = ({ location }) => {
           <IconContext.Provider value={{ size: "3rem" }}>
             <li>
               <Icon href="https://github.com/nikolasbarwicki" target="blank">
-                <FiGithub />
+                <FiGithub alt="Nikolas Barwicki github account"/>
               </Icon>
             </li>
             <li>
@@ -90,7 +90,7 @@ const Header = ({ location }) => {
                 href="https://linkedin.com/in/nikolas-barwicki"
                 target="blank"
               >
-                <FiLinkedin />
+                <FiLinkedin alt="Nikolas Barwicki linkedin account"/>
               </Icon>
             </li>
             <Menu location={location} />

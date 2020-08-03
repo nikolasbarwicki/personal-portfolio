@@ -58,17 +58,18 @@ const Home = () => {
         </span>
         <Heading>
           <span>Hi,</span>
-          <br></br>I am Nikolas Barwicki Developer & Designer
+          <br></br>I am Nikolas, <br></br>Junior Frontend Developer
         </Heading>
         <h3>Frontend Dev / UI/UX Designer / Freelancer</h3>
         <p>
-          I've always been drawn to the overlap between design and development.
-          Enjoy each aspect, and love building sites & mobile apps from start to
-          finish, for clients come from all over the world.
+          23 year old frontend developer and designer, based in Wroclaw, Poland.
+          I'm passionate about improving the lives of others through coding and
+          constantly looking to learn new things everyday. I am solution
+          oriented and love a good challenge.
         </p>
         <Paragraph regular padding={2}>
-          I'm available for remote work - if you would like to build your own
-          something together, <u>get in touch?</u>
+          If you’d like to work on a project with me or just say hello, you can
+          hit the contact section. Enjoy your stay.
         </Paragraph>
       </Content>
 
