@@ -12,15 +12,12 @@ import { graphql } from "gatsby"
 import "../styles/global.css"
 import SEO from "../components/seo"
 
-const S1 = styled.section`
+const FirstSection = styled.section`
   background: url(${props => props.background});
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-size: 70%;
-`
-const S3 = styled.section`
-  background-color: #f1f5fe;
 `
 
 export const query = graphql`
@@ -34,10 +31,14 @@ export const query = graphql`
 const IndexPage = ({ data, location }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <SEO lang="en" />
+    <SEO
+      description="I am Nikolas junior frontend developer based in Wroclaw, Poland"
+      lang="en"
+      title="Nikolas Barwicki - personal portfolio"
+    />
     <Header location={location} />
     <ReactFullpage
-      licenseKey={"5147266D-76274BA9-91276EF6-487CD09B"}
+      licenseKey={process.env.GATSBY_FULLPAGE_API_KEY}
       scrollingSpeed={700}
       navigation={true}
       navigationPosition="left"
@@ -48,15 +49,15 @@ const IndexPage = ({ data, location }) => (
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            <S1 className="section" background={data.file.publicURL}>
+            <FirstSection className="section" background={data.file.publicURL}>
               <Home />
-            </S1>
+            </FirstSection>
             <section className="section">
               <Projects />
             </section>
-            <S3 className="section">
+            <section style={{ backgroundColor: "#f1f5fe" }} className="section">
               <Skills />
-            </S3>
+            </section>
             <section className="section">
               <Contact />
             </section>
